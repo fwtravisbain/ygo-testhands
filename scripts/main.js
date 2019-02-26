@@ -6,7 +6,7 @@ var myCard5 = document.querySelector('card5');
 var myNewHandButton = document.querySelecter('button');
 
 
-myCard1.textConcert = 'empty';
+myCard1.innerHTML = 'empty1';
 myCard2.textConcert = 'empty';
 myCard3.textConcert = 'empty';
 myCard4.textConcert = 'empty';
@@ -19,11 +19,11 @@ function drawNewHand()
 	localStorage.setItem('number', myName);
 	myHeading.textContent = 'Your number is, ' + myNumber;*/
 	
-	myCard1.textConcert = 'Card 1';
-	myCard2.textConcert = 'Card 2';
-	myCard3.textConcert = 'Card 3';
-	myCard4.textConcert = 'Card 4';
-	myCard5.textConcert = 'Card 5';
+	myCard1.textContent = 'Card 1';
+	myCard2.textContent = 'Card 2';
+	myCard3.textContent = 'Card 3';
+	myCard4.textContent = 'Card 4';
+	myCard5.textContent = 'Card 5';
 }
 
 myNewHandButton.onclick = function()
