@@ -4,12 +4,17 @@ function Card(name)
 	this.drawn = false;
 }
 
+function sleep(ms) 
+{
+	  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
 
 //test deck
 myDeck = [];
+drawnCards = [];
 //myDeck.push(new Card("Gazelle"));
 //myDeck.push(new Card("Foxy"));
 //myDeck.push(new Card("Spinny"));
@@ -50,6 +55,9 @@ $.get('Burning Abyss.ydk', function(data){
         		
         		console.log(data.name);
         	});
+        	
+        	//avoid rate limiting
+        	sleep(100);
         });
         
         //add each card to deck
@@ -83,16 +91,43 @@ function drawNewHand()
 	localStorage.setItem('number', myName);
 	myHeading.textContent = 'Your number is, ' + myNumber;*/
 	
-	myCard1.innerHTML = myDeck[0].name;
-	myCard2.innerHTML = myDeck[1].name;
-	myCard3.innerHTML = myDeck[2].name;
-	myCard4.innerHTML = myDeck[3].name;
-	myCard5.innerHTML = myDeck[4].name;
+	var deckSize = myDeck.length;
 	
-	myDeck[0].drawn = true;
+	for(var i = 0; i<5; i++)
+	{
+		var running = true;
+		
+		while(running)
+		{
+			//get a random card under deck size
+			var randomNumber = Math.floor(Math.random() * deckSize);
+			
+			if(!myDeck[randomNumber].drawn)
+			{
+				drawnCards.push(randomNumber);
+				myDeck[randomNumber].drawn = true;
+				running = false;
+			}
+		}
+	}
+	
+	myCard1.innerHTML = random[drawnCards[0]].name;
+	myCard2.innerHTML = random[drawnCards[1]].name;
+	myCard3.innerHTML = random[drawnCards[2]].name;
+	myCard4.innerHTML = random[drawnCards[3]].name;
+	myCard5.innerHTML = random[drawnCards[4]].name;
 }
 
 myNewHandButton.onclick = function()
 {
+	//reset drawn cards back to the deck
+	for(var i = 0; i<drawnCards.length; i++)
+	{
+		myDeck[drawnCards[i]].drawn = false;
+	}
+	
+	drawnCards = [];
+	
+	//draw new hand
 	drawNewHand();
 }
