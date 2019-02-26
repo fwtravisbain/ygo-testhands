@@ -1,8 +1,8 @@
-var myCard1 = document.querySelector('h1');
-var myCard2 = document.querySelector('h2');
-var myCard3 = document.querySelector('h3');
-var myCard4 = document.querySelector('h4');
-var myCard5 = document.querySelector('h5');
+var myCard1 = document.querySelector('card1');
+var myCard2 = document.querySelector('card2');
+var myCard3 = document.querySelector('card3');
+var myCard4 = document.querySelector('card4');
+var myCard5 = document.querySelector('card5');
 var myNewHandButton = document.querySelecter('button');
 
 
