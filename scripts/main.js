@@ -4,14 +4,7 @@ function Card(name)
 	this.drawn = false;
 }
 
-function sleep(ms) 
-{
-	  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-var now = new Date().getTime();
-
-var millisecondsToWait = 10000; /* i.e. 1 second */
+var promise = Promise.resolve();
 
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
@@ -61,21 +54,14 @@ $.get('Burning Abyss.ydk', function(data){
 //        	});
         	
         	//avoid rate limiting
-        	sleep(100000);
         	
-        	while ( new Date().getTime() < now + millisecondsToWait )
-
-        	{
-
-        	/* do nothing; this will exit once it reached the time limit */
-
-        	/* if you want you could do something and exit*/
-
-        	/* mostly I prefer to use this */
-        		
-        		//console.log("waiting");
-
-        	}
+        	
+        	promise = promise.then(function () {
+        		console.log("url: " + requestUrl + id);
+        	    return new Promise(function (resolve) {
+        	      setTimeout(resolve, interval);
+        	    });
+        	
         });
         
         //add each card to deck
