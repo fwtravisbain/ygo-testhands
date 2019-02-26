@@ -5,37 +5,49 @@ function Card(name)
 }
 
 
+var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
 
 //test deck
 myDeck = [];
-myDeck.push(new Card("Gazelle"));
-myDeck.push(new Card("Foxy"));
-myDeck.push(new Card("Spinny"));
-myDeck.push(new Card("Circle"));
-myDeck.push(new Card("Debug"));
+//myDeck.push(new Card("Gazelle"));
+//myDeck.push(new Card("Foxy"));
+//myDeck.push(new Card("Spinny"));
+//myDeck.push(new Card("Circle"));
+//myDeck.push(new Card("Debug"));
 
 //read in ydk
 var ydkDeck = new Array;
+var ydkMainDeck = new Array;
+var deckJSON = new Array;
 $.get('Burning Abyss.ydk', function(data){
         ydkDeck = data.split('\n');
-        console.log(ydkDeck);
+        //console.log(ydkDeck);
         
-      //stop iterating when you see #extra !side or a blank line. start at i = 2 to skip headers
+      //Get only the maindeck cards
         var i = 2;
         console.log("deck size: " + ydkDeck.length);
         while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
         {
-        	console.log(ydkDeck[i]);
+        	//console.log(ydkDeck[i]);
+        	ydkMainDeck.push(ydkDeck[i]);
         	i++;
         }
+        
+        //generate json url
+        var deckJSON = ydkMainDeck.map(function(id) 
+        {
+            return $.getJson(requestUrl + id)
+        });
+        
+        //add each card to deck
+        deckJSON.forEach(function(element)
+        {
+        	myDeck.push(new Card(element.name));
+        });
+        
+        
     }, 'text');
-
-
-
-
-
-
 
 var myCard1 = document.getElementById("card1");
 var myCard2 = document.getElementById("card2");
