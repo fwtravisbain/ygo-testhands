@@ -43,6 +43,7 @@ $.get('Burning Abyss.ydk', function(data){
         //add each card to deck
         deckJSON.forEach(function(element)
         {
+        	console.log(element.name);
         	myDeck.push(new Card(element.name));
         });
         
