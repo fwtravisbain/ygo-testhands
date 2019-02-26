@@ -3,7 +3,7 @@ var myCard2 = document.getElementById("card2");
 var myCard3 = document.getElementById("card3");
 var myCard4 = document.getElementById("card4");
 var myCard5 = document.getElementById("card5");
-var myNewHandButton = document.querySelecter("button");
+//var myNewHandButton = document.querySelecter("button");
 
 
 myCard1.innerHTML = "empty1";
