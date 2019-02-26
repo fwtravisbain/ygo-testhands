@@ -73,7 +73,7 @@ $.get('Burning Abyss.ydk', function(data){
 
         	/* mostly I prefer to use this */
         		
-        		console.log("waiting");
+        		//console.log("waiting");
 
         	}
         });
