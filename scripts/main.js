@@ -20,7 +20,7 @@ var ydkDeck = new Array;
 $.get('Burning Abyss.ydk', function(data){
         ydkDeck = data.split('\n');
         console.log(ydkDeck);
-    });
+    }, 'text');
 
 var myCard1 = document.getElementById("card1");
 var myCard2 = document.getElementById("card2");
