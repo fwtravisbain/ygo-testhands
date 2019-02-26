@@ -44,7 +44,7 @@ $.get('Burning Abyss.ydk', function(data){
         
         ydkMainDeck.forEach(function(id)
         {
-        	console.log("url: " + requestUrl + id);
+        	//console.log("url: " + requestUrl + id);
         	
 //        	$.getJSON(requestUrl + id, function(data)
 //        	{
@@ -56,11 +56,14 @@ $.get('Burning Abyss.ydk', function(data){
         	//avoid rate limiting
         	
         	
-        	promise = promise.then(function () {
+        	promise = promise.then(function () 
+        	{
         		console.log("url: " + requestUrl + id);
-        	    return new Promise(function (resolve) {
-        	      setTimeout(resolve, interval);
+        	    return new Promise(function (resolve) 
+        	    {
+        	    	setTimeout(resolve, interval);
         	    });
+        	});
         	
         });
         
