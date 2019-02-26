@@ -7,10 +7,10 @@ var myNewHandButton = document.querySelecter('button');
 
 
 myCard1.innerHTML = 'empty1';
-myCard2.textConcert = 'empty';
-myCard3.textConcert = 'empty';
-myCard4.textConcert = 'empty';
-myCard5.textConcert = 'empty';
+document.getElementById("card2").innerHTML = 'empty';
+myCard3.textContent = 'empty';
+myCard4.textContent = 'empty';
+myCard5.textContent = 'empty';
 
 //Draw a new hand
 function drawNewHand()
