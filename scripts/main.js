@@ -20,18 +20,20 @@ var ydkDeck = new Array;
 $.get('Burning Abyss.ydk', function(data){
         ydkDeck = data.split('\n');
         console.log(ydkDeck);
+        
+      //stop iterating when you see #extra !side or a blank line. start at i = 2 to skip headers
+        var i = 2;
+        console.log("deck size: " + ydkDeck.length);
+        while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
+        {
+        	console.log(ydkDeck[i]);
+        	i++;
+        }
     }, 'text');
 
 
 
-//stop iterating when you see #extra !side or a blank line. start at i = 2 to skip headers
-var i = 2;
-console.log("deck size: " + ydkDeck.length);
-while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
-{
-	console.log(ydkDeck[i]);
-	i++;
-}
+
 
 
 
