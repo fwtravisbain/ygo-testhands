@@ -37,7 +37,7 @@ $.get('Burning Abyss.ydk', function(data){
         //generate json url
         var deckJSON = ydkMainDeck.map(function(id) 
         {
-            return $.getJson(requestUrl + id)
+            return $.getJSON(requestUrl + id)
         });
         
         //add each card to deck
