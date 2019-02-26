@@ -5,6 +5,13 @@ var myCard4 = document.querySelector('h4');
 var myCard5 = document.querySelector('h5');
 var myNewHandButton = document.querySelecter('button');
 
+
+myCard1.textConcert = 'empty';
+myCard2.textConcert = 'empty';
+myCard3.textConcert = 'empty';
+myCard4.textConcert = 'empty';
+myCard5.textConcert = 'empty';
+
 //Draw a new hand
 function drawNewHand()
 {
