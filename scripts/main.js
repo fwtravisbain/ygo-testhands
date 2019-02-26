@@ -57,7 +57,7 @@ $.get('Burning Abyss.ydk', function(data){
 //        	});
         	
         	//avoid rate limiting
-        	sleep(1000);
+        	sleep(100000);
         });
         
         //add each card to deck
