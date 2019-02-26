@@ -19,8 +19,20 @@ myDeck.push(new Card("Debug"));
 var ydkDeck = new Array;
 $.get('Burning Abyss.ydk', function(data){
         ydkDeck = data.split('\n');
-        console.log(ydkDeck);
+        //console.log(ydkDeck);
     }, 'text');
+
+
+
+//stop iterating when you see #extra !side or a blank line
+var i = 0;
+while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side")
+{
+	console.log(ydkDeck[i]);
+	i++;
+}
+
+
 
 var myCard1 = document.getElementById("card1");
 var myCard2 = document.getElementById("card2");
