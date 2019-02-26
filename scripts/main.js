@@ -5,7 +5,7 @@ function Card(name)
 }
 
 var promise = Promise.resolve();
-var interval = 180;
+var interval = 230;
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
 
