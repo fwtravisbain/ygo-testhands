@@ -54,13 +54,10 @@ $.get('Burning Abyss.ydk', function(data){
         			
         			var name = data[0][0]["name"];
         			
-        	        myDeck.push(new Card(name));
-        	        
-        	        
-        	        		
+        	        myDeck.push(new Card(name));	
         	        //data.name
-        	        console.log("data0 name: " + name);
-        	        console.log("data object: " + data);
+//        	        console.log("data0 name: " + name);
+//        	        console.log("data object: " + data);
         	    });
         		
 //        		console.log("url: " + requestUrl + id);
