@@ -57,7 +57,7 @@ $.get('Burning Abyss.ydk', function(data){
         	});
         	
         	//avoid rate limiting
-        	sleep(100);
+        	sleep(1000);
         });
         
         //add each card to deck
@@ -111,11 +111,11 @@ function drawNewHand()
 		}
 	}
 	
-	myCard1.innerHTML = random[drawnCards[0]].name;
-	myCard2.innerHTML = random[drawnCards[1]].name;
-	myCard3.innerHTML = random[drawnCards[2]].name;
-	myCard4.innerHTML = random[drawnCards[3]].name;
-	myCard5.innerHTML = random[drawnCards[4]].name;
+	myCard1.innerHTML = myDeck[drawnCards[0]].name;
+	myCard2.innerHTML = myDeck[drawnCards[1]].name;
+	myCard3.innerHTML = myDeck[drawnCards[2]].name;
+	myCard4.innerHTML = myDeck[drawnCards[3]].name;
+	myCard5.innerHTML = myDeck[drawnCards[4]].name;
 }
 
 myNewHandButton.onclick = function()
