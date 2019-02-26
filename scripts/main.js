@@ -52,12 +52,14 @@ $.get('Burning Abyss.ydk', function(data){
         	    {
         			//cardData = JSON.parse(data)
         			
-        	        myDeck.push(new Card(data[0].name));
+        			var name = data[0].name
+        			
+        	        myDeck.push(new Card(name));
         	        
         	        
         	        		
         	        //data.name
-        	        console.log(data[0].name);
+        	        console.log(name);
         	    });
         		
 //        		console.log("url: " + requestUrl + id);
