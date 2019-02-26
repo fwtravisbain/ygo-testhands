@@ -1,25 +1,22 @@
-var myHeading = document.querySelector('h1');
+var myCard1 = document.querySelector('h1');
+var myCard2 = document.querySelector('h2');
+var myCard3 = document.querySelector('h3');
+var myCard4 = document.querySelector('h4');
+var myCard5 = document.querySelector('h5');
 var myNewHandButton = document.querySelecter('button');
-
-myHeading.textContent = 'Yu-Gi-Oh! Test Hands';
 
 //Draw a new hand
 function drawNewHand()
 {
-	var myNumber = prompt('Please enter a number.');
+	/*var myNumber = prompt('Please enter a number.');
 	localStorage.setItem('number', myName);
-	myHeading.textContent = 'Your number is, ' + myNumber;
-}
-
-//Initialize
-if(!localStorage.getItem('name'))
-{
-	drawNewHand();
-}
-else
-{
-	var storedNumber = localStorage.getItem('number');
-	myHeading.textContent = 'Your number is, ' + storedNumber;
+	myHeading.textContent = 'Your number is, ' + myNumber;*/
+	
+	myCard1.textConcert = 'Card 1';
+	myCard2.textConcert = 'Card 2';
+	myCard3.textConcert = 'Card 3';
+	myCard4.textConcert = 'Card 4';
+	myCard5.textConcert = 'Card 5';
 }
 
 myNewHandButton.onclick = function()
