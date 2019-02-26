@@ -26,6 +26,7 @@ $.get('Burning Abyss.ydk', function(data){
 
 //stop iterating when you see #extra !side or a blank line. start at i = 2 to skip headers
 var i = 2;
+console.log("deck size: " + ydkDeck.length);
 while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
 {
 	console.log(ydkDeck[i]);
