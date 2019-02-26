@@ -50,10 +50,14 @@ $.get('Burning Abyss.ydk', function(data){
         	{
         		$.getJSON(requestUrl + id, function(data)
         	    {
-        	        myDeck.push(new Card(data[0].name));
+        			cardData = JSON.parse(data)
+        			
+        	        myDeck.push(new Card(cardData[0].name));
+        	        
+        	        
         	        		
         	        //data.name
-        	        console.log(data[0].name);
+        	        console.log(cardData[0].name);
         	    });
         		
 //        		console.log("url: " + requestUrl + id);
