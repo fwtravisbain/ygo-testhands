@@ -5,7 +5,7 @@ function Card(name)
 }
 
 var promise = Promise.resolve();
-var interval = 170;
+var interval = 150;
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
 
@@ -58,7 +58,7 @@ $.get('Burning Abyss.ydk', function(data){
         	
         	promise = promise.then(function () 
         	{
-        		console.log("url: " + requestUrl + id);
+        		//console.log("url: " + requestUrl + id);
         	    return new Promise(function (resolve) 
         	    {
         	    	setTimeout(resolve, interval);
