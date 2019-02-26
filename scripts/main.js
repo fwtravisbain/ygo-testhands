@@ -42,6 +42,8 @@ $.get('Burning Abyss.ydk', function(data){
         
         ydkMainDeck.forEach(function(id)
         {
+        	console.log("url: " + requestUrl + id);
+        	
         	$.getJSON(requestUrl + id, function(data)
         	{
         		myDeck.push(new Card(data.name));
