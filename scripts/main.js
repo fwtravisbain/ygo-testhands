@@ -5,7 +5,7 @@ function Card(name)
 }
 
 var promise = Promise.resolve();
-var interval = 150;
+var interval = 180;
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
 
@@ -44,20 +44,17 @@ $.get('Burning Abyss.ydk', function(data){
         
         ydkMainDeck.forEach(function(id)
         {
-        	//console.log("url: " + requestUrl + id);
-        	
-        	$.getJSON(requestUrl + id, function(data)
-        	{
-        		myDeck.push(new Card(data.name));
-        		
-        		console.log(data.name);
-        	});
         	
         	//avoid rate limiting
-        	
-        	
         	promise = promise.then(function () 
         	{
+        		$.getJSON(requestUrl + id, function(data)
+        	    {
+        	        myDeck.push(new Card(data.name));
+        	        		
+        	        console.log(data.name);
+        	    });
+        		
         		//console.log("url: " + requestUrl + id);
         	    return new Promise(function (resolve) 
         	    {
