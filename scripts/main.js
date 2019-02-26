@@ -40,12 +40,20 @@ $.get('Burning Abyss.ydk', function(data){
             return $.getJSON(requestUrl + id)
         });
         
-        //add each card to deck
-        deckJSON.forEach(function(element)
+        ydkMainDeck.forEach(function(id)
         {
-        	console.log(element.name);
-        	myDeck.push(new Card(element.name));
+        	$.getJSON(requestUrl + id, function(data)
+        	{
+        		myDeck.push(new Card(data.name));
+        	});
         });
+        
+        //add each card to deck
+//        deckJSON.forEach(function(element)
+//        {
+//        	console.log(element.name);
+//        	myDeck.push(new Card(element.name));
+//        });
         
         
     }, 'text');
