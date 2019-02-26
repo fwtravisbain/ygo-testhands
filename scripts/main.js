@@ -1,3 +1,27 @@
+function Card(name)
+{
+	this.name = name;
+	this.drawn = false;
+}
+
+
+
+
+//test deck
+myDeck = [];
+myDeck.push(new Card("Gazelle"));
+myDeck.push(new Card("Foxy"));
+myDeck.push(new Card("Spinny"));
+myDeck.push(new Card("Circle"));
+myDeck.push(new Card("Debug"));
+
+//read in ydk
+var ydkDeck = new Array;
+$.get('Burning Abyss.ydk', function(data){
+        ydkDeck = data.split('\n');
+        console.log(ydkDeck);
+    });
+
 var myCard1 = document.getElementById("card1");
 var myCard2 = document.getElementById("card2");
 var myCard3 = document.getElementById("card3");
@@ -19,11 +43,13 @@ function drawNewHand()
 	localStorage.setItem('number', myName);
 	myHeading.textContent = 'Your number is, ' + myNumber;*/
 	
-	myCard1.innerHTML = 'Card 1';
-	myCard2.innerHTML = 'Card 2';
-	myCard3.innerHTML = 'Card 3';
-	myCard4.innerHTML = 'Card 4';
-	myCard5.innerHTML = 'Card 5';
+	myCard1.innerHTML = myDeck[0].name;
+	myCard2.innerHTML = myDeck[1].name;
+	myCard3.innerHTML = myDeck[2].name;
+	myCard4.innerHTML = myDeck[3].name;
+	myCard5.innerHTML = myDeck[4].name;
+	
+	myDeck[0].drawn = true;
 }
 
 myNewHandButton.onclick = function()
