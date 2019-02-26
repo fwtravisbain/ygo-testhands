@@ -20,13 +20,13 @@ var ydkDeck = new Array;
 $.get('Burning Abyss.ydk', function(data){
         ydkDeck = data.split('\n');
         //console.log(ydkDeck);
-    });
+    }, 'text');
 
 
 
 //stop iterating when you see #extra !side or a blank line
 var i = 0;
-while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side")
+while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
 {
 	console.log(ydkDeck[i]);
 	i++;
