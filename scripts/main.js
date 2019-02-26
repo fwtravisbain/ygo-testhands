@@ -61,7 +61,7 @@ $.get('Burning Abyss.ydk', function(data){
         		console.log("url: " + requestUrl + id);
         	    return new Promise(function (resolve) 
         	    {
-        	    	setTimeout(resolve, 3000);
+        	    	setTimeout(resolve, interval);
         	    });
         	});
         	
