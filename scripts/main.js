@@ -52,7 +52,8 @@ $.get('Burning Abyss.ydk', function(data){
         	    {
         	        myDeck.push(new Card(data.name));
         	        		
-        	        console.log(data.name);
+        	        //data.name
+        	        console.log(data);
         	    });
         		
         		//console.log("url: " + requestUrl + id);
