@@ -153,7 +153,7 @@ function handleFiles()
 {
 	  const fileList = this.files; /* now you can work with the file list */
 	  
-	  readDeck(fileList[0]);
+	  readDeck(fileList);
 }
 
 function readDeck(data)
