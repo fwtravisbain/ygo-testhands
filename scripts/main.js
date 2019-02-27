@@ -155,7 +155,7 @@ function handleFiles()
 	  
 	  console.log("Printing test strings");
 	  console.log(this.files);
-	  console.log(fileList);
+	  console.log(fileList[0]);
 	  
 	  readDeck(fileList);
 }
