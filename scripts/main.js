@@ -153,6 +153,9 @@ function handleFiles()
 {
 	  const fileList = this.files; /* now you can work with the file list */
 	  
+	  console.log(this.files);
+	  console.log(fileList);
+	  
 	  readDeck(fileList);
 }
 
