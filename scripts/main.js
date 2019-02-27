@@ -8,6 +8,14 @@ var promise = Promise.resolve();
 var interval = 230;
 var requestUrl = "https://db.ygoprodeck.com/api/v2/cardinfo.php?name=";
 
+const inputElement = document.getElementById("input");
+
+inputElement.addEventListener("change", handleFiles, false);
+
+$('#button').on('click', function() 
+{
+	$('#input').trigger('click');
+});
 
 //test deck
 myDeck = [];
@@ -19,65 +27,65 @@ drawnCards = [];
 //myDeck.push(new Card("Debug"));
 
 //read in ydk
-var ydkDeck = new Array;
-var ydkMainDeck = new Array;
-var deckJSON = new Array;
-$.get('Burning Abyss.ydk', function(data){
-        ydkDeck = data.split('\n');
-        //console.log(ydkDeck);
-        
-      //Get only the maindeck cards
-        var i = 2;
-        console.log("deck size: " + ydkDeck.length);
-        while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
-        {
-        	//console.log(ydkDeck[i]);
-        	ydkMainDeck.push(ydkDeck[i]);
-        	i++;
-        }
-        
-        //generate json url
-//        var deckJSON = ydkMainDeck.map(function(id) 
+//var ydkDeck = new Array;
+//var ydkMainDeck = new Array;
+//var deckJSON = new Array;
+//$.get('Burning Abyss.ydk', function(data){
+//        ydkDeck = data.split('\n');
+//        //console.log(ydkDeck);
+//        
+//      //Get only the maindeck cards
+//        var i = 2;
+//        console.log("deck size: " + ydkDeck.length);
+//        while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
 //        {
-//            return $.getJSON(requestUrl + id)
-//        });
-        
-        ydkMainDeck.forEach(function(id)
-        {
-        	
-        	//avoid rate limiting
-        	promise = promise.then(function () 
-        	{
-        		$.getJSON(requestUrl + id, function(data)
-        	    {
-        			//cardData = JSON.parse(data)
-        			
-        			var name = data[0][0]["name"];
-        			
-        	        myDeck.push(new Card(name));	
-        	        //data.name
-//        	        console.log("data0 name: " + name);
-//        	        console.log("data object: " + data);
-        	    });
-        		
-//        		console.log("url: " + requestUrl + id);
-        	    return new Promise(function (resolve) 
-        	    {
-        	    	setTimeout(resolve, interval);
-        	    });
-        	});
-        	
-        });
-        
-        //add each card to deck
-//        deckJSON.forEach(function(element)
+//        	//console.log(ydkDeck[i]);
+//        	ydkMainDeck.push(ydkDeck[i]);
+//        	i++;
+//        }
+//        
+//        //generate json url
+////        var deckJSON = ydkMainDeck.map(function(id) 
+////        {
+////            return $.getJSON(requestUrl + id)
+////        });
+//        
+//        ydkMainDeck.forEach(function(id)
 //        {
-//        	console.log(element.name);
-//        	myDeck.push(new Card(element.name));
+//        	
+//        	//avoid rate limiting
+//        	promise = promise.then(function () 
+//        	{
+//        		$.getJSON(requestUrl + id, function(data)
+//        	    {
+//        			//cardData = JSON.parse(data)
+//        			
+//        			var name = data[0][0]["name"];
+//        			
+//        	        myDeck.push(new Card(name));	
+//        	        //data.name
+////        	        console.log("data0 name: " + name);
+////        	        console.log("data object: " + data);
+//        	    });
+//        		
+////        		console.log("url: " + requestUrl + id);
+//        	    return new Promise(function (resolve) 
+//        	    {
+//        	    	setTimeout(resolve, interval);
+//        	    });
+//        	});
+//        	
 //        });
-        
-        
-    }, 'text');
+//        
+//        //add each card to deck
+////        deckJSON.forEach(function(element)
+////        {
+////        	console.log(element.name);
+////        	myDeck.push(new Card(element.name));
+////        });
+//        
+//        
+//    }, 'text');
 
 var myCard1 = document.getElementById("card1");
 var myCard2 = document.getElementById("card2");
@@ -139,4 +147,66 @@ myNewHandButton.onclick = function()
 	
 	//draw new hand
 	drawNewHand();
+}
+
+function handleFiles() 
+{
+	  const fileList = this.files; /* now you can work with the file list */
+	  
+	  readDeck(fileList[0]) 
+}
+
+function readDeck(data)
+{
+	var ydkDeck = new Array;
+	var ydkMainDeck = new Array;
+	var deckJSON = new Array;
+    ydkDeck = data.split('\n');
+    //console.log(ydkDeck);
+    
+  //Get only the maindeck cards
+    var i = 2;
+    console.log("deck size: " + ydkDeck.length);
+    while(ydkDeck[i] != "" && ydkDeck[i] != "#extra" && ydkDeck[i] != "!side" && i < ydkDeck.length)
+    {
+    	//console.log(ydkDeck[i]);
+    	ydkMainDeck.push(ydkDeck[i]);
+    	i++;
+    }
+    
+    ydkMainDeck.forEach(function(id)
+    {
+    	
+    	//avoid rate limiting
+    	promise = promise.then(function () 
+    	{
+    		$.getJSON(requestUrl + id, function(data)
+    	    {
+    			//cardData = JSON.parse(data)
+    			
+    			var name = data[0][0]["name"];
+    			
+    	        myDeck.push(new Card(name));	
+    	        //data.name
+//	        	        console.log("data0 name: " + name);
+//	        	        console.log("data object: " + data);
+    	    });
+    		
+//	        		console.log("url: " + requestUrl + id);
+    	    return new Promise(function (resolve) 
+    	    {
+    	    	setTimeout(resolve, interval);
+    	    });
+    	});
+    	
+    });
+    
+    //add each card to deck
+//	        deckJSON.forEach(function(element)
+//	        {
+//	        	console.log(element.name);
+//	        	myDeck.push(new Card(element.name));
+//	        });
+	        
+	        
 }
